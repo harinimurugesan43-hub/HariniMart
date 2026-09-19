@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HariniIMart - Online Shopping</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN PAGE -->
+  <section id="loginPage" class="login-page">
+    <div class="login-card">
+      <div class="login-brand">HariniMart</div>
+      <p class="login-subtitle">Login to continue shopping</p>
+
+      <form id="loginForm">
+        <label>Email</label>
+        <input id="email" type="email" placeholder="Enter email" required>
+
+        <label>Password</label>
+        <input id="password" type="password" placeholder="Enter password" minlength="6" required>
+
+        <button class="primary-btn" type="submit">Login</button>
+      </form>
+
+      <div class="divider"><span>OR</span></div>
+
+      <button id="googleBtn" class="google-btn">
+        <span class="google-icon">G</span> Continue with Google
+      </button>
+
+      <p id="loginMessage" class="message"></p>
+      <p class="demo-note">Demo website: login works locally. Real Google OAuth needs Firebase/Google configuration.</p>
+    </div>
+  </section>
+
+  <!-- SHOP PAGE -->
+  <section id="shopPage" class="hidden">
+    <header class="topbar">
+      <div class="logo">HariniMart</div>
+      <div class="search-box">
+        <input id="searchInput" type="text" placeholder="Search for products, brands and more">
+        <button id="searchBtn">Search</button>
+      </div>
+      <div class="header-actions">
+        <button id="cartBtn" class="cart-button">🛒 Cart <span id="cartCount">0</span></button>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <nav class="category-bar">
+      <span>Electronics</span>
+      <span>Mobiles</span>
+      <span>Laptops</span>
+      <span>Accessories</span>
+      <span>Best Deals</span>
+    </nav>
+
+    <main>
+      <div class="welcome">
+        <div>
+          <h1>Welcome to HariniMart</h1>
+          <p>Simple online shopping — browse, add to cart and buy.</p>
+        </div>
+      </div>
+
+      <section class="products-section">
+        <div class="section-heading">
+          <h2>Popular Products</h2>
+          <span id="productCount"></span>
+        </div>
+        <div id="productGrid" class="product-grid"></div>
+      </section>
+    </main>
+  </section>
+
+  <!-- CART DRAWER -->
+  <div id="cartOverlay" class="overlay hidden"></div>
+  <aside id="cartPanel" class="cart-panel">
+    <div class="cart-header">
+      <h2>My Cart</h2>
+      <button id="closeCart">✕</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="total-row"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+      <button id="buyCartBtn" class="primary-btn">Proceed to Buy</button>
+    </div>
+  </aside>
+
+  <!-- PRODUCT MODAL -->
+  <div id="productModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeModal" class="modal-close">✕</button>
+      <img id="modalImage" src="" alt="Product">
+      <div>
+        <h2 id="modalName"></h2>
+        <div id="modalRating" class="rating"></div>
+        <h3 id="modalPrice"></h3>
+        <p id="modalDescription"></p>
+        <button id="modalBuy" class="primary-btn">Buy Now</button>
+        <button id="modalAdd" class="secondary-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkoutModal" class="modal hidden">
+    <div class="checkout-card">
+      <button id="closeCheckout" class="modal-close">✕</button>
+      <h2>Place Your Order</h2>
+      <form id="checkoutForm">
+        <input id="customerName" type="text" placeholder="Full Name" required>
+        <input id="customerPhone" type="tel" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+        <textarea id="customerAddress" placeholder="Delivery Address" required></textarea>
+        <select id="paymentMethod" required>
+          <option value="">Select Payment Method</option>
+          <option>Cash on Delivery</option>
+          <option>UPI</option>
+          <option>Card</option>
+        </select>
+        <div class="checkout-total">Order Total: <strong id="checkoutTotal">₹0</strong></div>
+        <button class="primary-btn" type="submit">Place Order</button>
+      </form>
+      <p id="orderMessage" class="message"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
